@@ -15,6 +15,9 @@ func _physics_process(delta):
 		if body.is_in_group("Bricks"):
 			get_node("/root/World").score += 5
 			body.queue_free()
+			if get_tree().get_nodes_in_group("Bricks").size() <= 1:
+				get_node("/root/World").level_complete = true
+				queue_free()
 		
 		if body.get_name() == "Paddle":
 			var speed = get_linear_velocity().length()
