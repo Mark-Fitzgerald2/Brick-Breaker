@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="Walls" type="StaticBody2D"]
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 0, 0, 0, 416, -64, 416, -64, -64, 704, -64, 704, 416, 640, 416, 640, 0 )

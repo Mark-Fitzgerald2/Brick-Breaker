@@ -1,16 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Mini Scenes/Paddle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Mini Scenes/Brick.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Mini Scenes/Score.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=4]
+[ext_resource path="res://Mini Scenes/Walls.tscn" type="PackedScene" id=5]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="Walls" type="StaticBody2D" parent="."]
-
-[node name="Collision" type="CollisionPolygon2D" parent="Walls"]
-polygon = PoolVector2Array( 0, 0, 0, 416, -64, 416, -64, -64, 704, -64, 704, 416, 640, 416, 640, 0 )
+[node name="Walls" parent="." instance=ExtResource( 5 )]
 
 [node name="Bricks" type="Node2D" parent="."]
 
@@ -44,15 +43,7 @@ position = Vector2( 256, 64 )
 [node name="Brick10" parent="Bricks" instance=ExtResource( 2 )]
 position = Vector2( 320, 64 )
 
-[node name="Score" type="Label" parent="."]
-margin_left = 32.0
-margin_top = 16.0
-margin_right = 72.0
-margin_bottom = 30.0
-text = "Score: 0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Paddle" parent="." instance=ExtResource( 1 )]
 position = Vector2( 320, 320 )
+
+[node name="Score" parent="." instance=ExtResource( 3 )]
